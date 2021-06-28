@@ -1,0 +1,131 @@
+registro Stock
+	cadena[30] nart
+	real costo
+	entero cod, stck
+fin registro
+
+entero n,pos,op,sl,b
+
+arreglo[500] de stock art
+
+
+procedimiento registroArticulo(entero n, var arreglo[500] de stock art)
+entero i
+inicio
+para i <- 1 hasta n haga
+Escriba "Ingrese el codigo del articulo: "
+lea art[i].cod
+Escriba "Ingrese el nombre del articulo: "
+lea art[i].nart
+Escriba "Ingrese el costo del articulo: "
+lea art[i].costo
+Escriba "Ingrese la cantidad disponible: "
+lea art[i].stck
+llamar nueva_linea
+Fin Para
+llamar limpiar_pantalla
+fin
+
+procedimiento acomodoRegistro(entero n, var arreglo[500] de stock art)
+entero i,j
+arreglo[500] de stock aux
+inicio
+aux<-art
+para i<-1  hasta n -1  haga 
+	para j<-1  hasta n -i haga 
+		si (art[j].cod > art[j+1].cod)  entonces
+			aux[i] <-art[j]
+			art[j] <- art[j+1]
+			art[j+1] <- aux[i]
+		fin si 
+	fin para
+fin para
+fin
+
+Procedimiento busquedaRegistro(entero b, entero n, arreglo[500] de stock art, var entero pos)
+entero i
+inicio
+Pos <- 0 
+para i<-1 hasta n haga 
+si( art[i].cod = b )  entonces
+Pos <-i 
+Escriba "Nombre del articulo buscado: ", art[i].nart
+llamar nueva_linea
+Escriba "Costo del articulo buscado: ", art[i].costo
+llamar nueva_linea
+Escriba "Existencias del articulo: ", art[i].stck
+llamar nueva_linea
+Escriba "Codigo del articulo buscado: ", art[i].cod
+fin si 
+fin para
+llamar nueva_linea
+fin 
+
+Procedimiento venta(entero n, var arreglo[500] de stock art)
+entero vt, a
+inicio
+Escriba "Codigo del articulo a vender: "
+lea vt
+llamar busquedaRegistro(vt,b,art,pos)
+si art[pos].stck > 0 entonces
+Escriba "Nombre del articulo: ",art[pos].nart
+Escriba "Precio del articulo: ",art[pos].costo
+art[pos].stck<-art[pos].stck-1
+sino
+Escriba "Articulo no disponible..."
+fin si
+fin
+
+Procedimiento imprimeRegistro(entero n, arreglo[500] de stock art)
+entero i,j
+inicio
+para i <- 1 hasta n haga
+Escriba "Articulo: ",art[i].nart
+Llamar Nueva_linea
+Escriba "Codigo :", art[i].cod
+Llamar Nueva_linea
+Escriba "Costo :", art[i].costo,"$"
+Llamar Nueva_linea
+Llamar Nueva_linea
+Fin Para
+Fin
+
+inicio
+	sl<-0
+	Escriba "Ingrese la cantidad de articulos a registrar: "
+	lea n
+	mientras sl=0 haga
+	Escriba "Seleccione la opcion deseada: "
+	llamar nueva_linea
+	Escriba "[1]-Registro articulos."
+	llamar nueva_linea
+	Escriba "[2]-Acomodo del registro."
+	llamar nueva_linea
+	Escriba "[3]-Venta."
+	llamar nueva_linea
+	Escriba "[4]-Mostrar Registro de articulos."
+	llamar nueva_linea
+	Escriba "[5]-Buscar articulo por su codigo."
+	llamar nueva_linea
+	Escriba "[6]-Salir."
+	llamar nueva_linea
+	lea op
+	caso op haga
+		1:llamar registroArticulo(n,art)
+			llamar limpiar_pantalla
+		2:llamar acomodoRegistro(n,art)
+			llamar limpiar_pantalla
+		3:llamar venta(n,art)
+		llamar limpiar_pantalla
+		4:llamar imprimeRegistro(n,art)
+		5:Escriba "Ingrese el codigo buscado:"
+			lea b
+			llamar nueva_linea
+		  llamar busquedaRegistro(b,n,art,pos)
+		  llamar nueva_linea
+		6:llamar limpiar_pantalla
+		Escriba "Saliendo..."
+		sl<-1
+fin caso
+fin mientras
+fin

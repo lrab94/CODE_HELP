@@ -1,0 +1,33 @@
+/*Hacer un programa que calcule la potencia n de x, para cualquier valor entero de n. y = xn o y = x-n */
+real x, ye
+entero n,n2, i
+inicio
+Escriba "Ingrese el valor de X: "
+lea x
+Escriba "Ingrese el valor de n: "
+lea n
+ye<-1
+n2<-n
+si n<0 entonces
+	n<-n*(-1)
+fin si
+
+si x=0 entonces
+		escriba "Y=0"
+	sino
+		para i<-1 hasta n haga
+	
+			ye<-ye*x
+	
+		fin para
+		
+		si n2<0 entonces
+		ye<-1/ye
+		fin si
+
+		Escriba "Y=",ye
+		
+fin si
+
+fin
+			

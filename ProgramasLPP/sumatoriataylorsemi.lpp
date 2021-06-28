@@ -1,0 +1,16 @@
+real ye, x
+entero i, n
+inicio
+	escriba "ingrese el valor de x: "
+	lea x
+	escriba "ingrese el valor de n: "
+	lea n
+	para i<-1 hasta n haga
+		Si i mod 2 = 0 entonces
+		ye<-ye-((x+(i*2))/i)
+		sino
+		ye<-ye+((x-(i*2))/i)
+		fin si
+	fin para
+	escriba "Y=", ye
+fin

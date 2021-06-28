@@ -1,0 +1,14 @@
+/*raul*/
+/*comparaciom*/
+entero a, b
+inicio
+	escriba "Ingrese el primer numero: "
+	lea a
+	escriba "Ingrese el segundo numero: "
+	lea b
+	si a > b entonces
+		escriba "El mayor es: ", a
+	sino
+		escriba "El mayor es: ", b
+	fin si
+fin

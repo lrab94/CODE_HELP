@@ -1,0 +1,170 @@
+/* Librería de Funciones  */
+/*Aguilar Bernal  */
+
+
+/* Valor absoluto de un número entero */
+funcion absE(entero x) : entero
+entero n
+
+inicio
+    si x < 0 entonces
+      n <- x * -1
+    sino
+      n <- x 
+    fin si
+  retorne n
+  fin 
+
+ 
+
+ 
+
+/* Valor absoluto de un número real*/
+funcion absR(real x) : real
+real n
+
+  inicio
+	si x < 0 entonces
+      n <- x * -1
+    sino
+      n <- x 
+    fin si
+  retorne n
+  fin
+
+ 
+
+ 
+
+/* Elevar X a una potencia entera N */
+funcion pow (real x, entero n) : real
+entero i
+real p
+
+  inicio
+    p <- 1
+    Para i <- 1 hasta abs(n) haga
+      p <- p * x
+    fin para
+    Si n < 0 entonces
+      p <- 1 / p
+    fin si 
+    retorne p
+  fin
+
+
+
+
+
+/* Factorial de un número */
+funcion factorial (entero n) : entero
+entero i, f
+
+  inicio
+    i <- n
+    f <- 1
+    Repita
+      f <- f * i
+      i <- i - 1
+    Hasta i <= 1
+    retorne f
+  fin 
+
+ 
+
+ 
+
+/* Raíz cuadrada de un número */
+funcion sqrt (real x) : real
+real t, r
+
+  inicio
+    r <- x
+    t <- 0
+    mientras t <> r haga
+      t <- r
+      r <- (x/r + r)/2
+    fin mientras 
+    retorne r
+  fin
+ 
+
+ 
+
+/* Conversión de grados a radianes */
+funcion rad (real ang) : real
+real PI
+
+  inicio
+    PI <- 3.1416
+    retorne (ang * PI / 180)
+  fin 
+
+ 
+
+ 
+
+/* Conversión de radianes a grados */
+funcion grad (real ang) : real
+real PI
+
+  inicio
+    PI <- 3.1416
+    retorne (ang * 180 / PI)
+  fin
+  
+  
+  
+  
+  
+/* Función seno */
+
+funcion sin (entero rang): real
+entero i
+real sin
+booleano b
+	inicio
+	b<-verdadero
+	sin<-0
+	i<-1
+	mientras i<=30 haga
+		si b=verdadero entonces
+			sin<-sin+(pow(rang,i)/factorial(i))
+		b<-falso
+		sino
+		sin<-sin-((pow(rang,i)/factorial(i)))
+		b<-verdadero
+		fin si
+i<-i+2
+fin mientras
+retorne (sin)
+fin
+
+
+/* Función coseno */
+
+funcion cos(entero rang): real
+entero i
+real cos
+booleano b
+inicio
+b<-verdadero
+cos<-1
+i<-2
+mientras i<=30 haga
+si b=verdadero entonces
+	cos<-cos-((pow(rang,i)/factorial(i)))
+	b<-falso
+sino
+	cos<-cos+((pow(rang,i)/factorial(i)))
+	b<-verdadero
+fin si
+i<-i+2
+fin mientras
+retorne (cos)
+fin
+
+
+
+
+/* Función exponencial (antilogaritmo neperiano) */

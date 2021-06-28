@@ -1,0 +1,59 @@
+registro Stock
+	cadena[30] nart
+	real costo
+	entero cod
+fin registro
+entero n
+arreglo[500] de stock art
+
+
+procedimiento registroArticulo(entero n, var arreglo[500] de stock art)
+entero i
+inicio
+para i <- 1 hasta n haga
+Escriba "Ingrese el nombre del articulo: "
+lea art[i].nart
+Escriba "Ingrese el codigo del articulo: "
+lea art[i].cod
+Escriba "Ingrese el costo del articulo: "
+lea art[i].costo
+Fin Para
+fin
+
+procedimiento acomodoRegistro(entero n, var arreglo[500] de stock art)
+entero i,j
+arreglo[500] de stock aux
+inicio
+aux<-art
+para i<-1  HASTA n -1  haga 
+	para j<-1  HASTA n -i haga 
+		si (art[j].cod > art[j+1].cod)  entonces
+			aux[i] <-art[j]
+			art[j] <- art[j+1]
+			art[j+1] <- aux[i]
+		fin si 
+	fin para
+fin para
+fin
+
+Procedimiento imprimeRegistro(entero n, arreglo[500] de stock art)
+entero i,j
+inicio
+para i <- 1 hasta n haga
+Escriba "Articulo: ",art[i].nart
+Llamar Nueva_linea
+Escriba "Codigo :", art[i].cod
+Llamar Nueva_linea
+Escriba "Costo :", art[i].costo,"$"
+Llamar Nueva_linea
+Llamar Nueva_linea
+Fin Para
+Fin
+
+inicio
+	Escriba "Ingrese la cantidad de articulos a registrar: "
+	lea n
+	llamar registroArticulo(n,art)
+	llamar acomodoRegistro(n,art)
+	llamar imprimeRegistro(n,art)
+fin  

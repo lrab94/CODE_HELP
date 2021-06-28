@@ -1,0 +1,107 @@
+/*Aguilar Bernal Luis Raul
+Operaciones Con Vectores*/
+
+arreglo[100,100] de real a,b,c
+entero n, aux, op
+
+funcion llenarArreglo(entero n):arreglo[100,100] de real
+entero i,j
+inicio
+para i<-1 hasta n haga
+	para j<-1 hasta n haga
+		Escriba "[",i,",",j,"]="
+		lea a[i,j]
+	fin para
+fin para
+retorne a
+fin
+
+funcion sumaArreglo(entero n, arreglo[100,100] de real a, arreglo[100,100] de real b):arreglo[100,100] de real
+entero i
+inicio
+para i<-1 hasta n haga
+	para j<-1 hasta n haga
+		c[i,j]<-a[i,j]+b[i,j]
+fin para
+fin para
+retorne c
+fin
+
+funcion restaArreglo(entero n, arreglo[100,100] de real a, arreglo[100,100] de real b):arreglo[100,100] de real
+entero i
+inicio
+para i<-1 hasta n haga
+	para i<-1 hasta n haga
+	c[i,j]<-a[i,j]-b[i,j]
+fin para
+fin para
+retorne c
+fin
+
+funcion multiplicacionArreglo(entero n, arreglo[100,100] de real a, arreglo[100,100] de real b):arreglo[100,100] de real
+entero i,j,k
+inicio
+para i<-1 hasta n haga
+para j<-1 hasta n haga
+c[i,j]<-0
+para k<-1 hasta n haga
+	c[i,j]<-c[i,j]+(a[i,k]*b[k,j])
+fin para
+fin para
+fin para
+retorne c
+fin
+
+funcion escribeArreglo(entero n, arreglo[100,100] de real c):entero
+entero i
+inicio
+para i<-1 hasta n haga
+para j<-1 hasta n haga
+escriba "C[",i,",",j,"]=",c[i,j]
+llamar nueva_linea
+fin para
+fin para
+retorne 0
+fin
+
+inicio
+	Escriba "Ingrese la longitud de los vectores: "
+	lea n
+	Escriba "Ingrese los elementos de la matriz a"
+	llamar nueva_linea
+	a<-llenarArreglo(n)
+	llamar nueva_linea
+	Escriba "Ingrese los elementos de la matriz b"
+	llamar nueva_linea
+	b<-llenarArreglo(n)
+	llamar nueva_linea
+	Escriba "Que operacion desea realizar? "
+	llamar nueva_linea
+	llamar nueva_linea
+	Escriba "[1] Suma"
+	llamar nueva_linea
+	Escriba "[2] Resta"	
+	llamar nueva_linea
+	Escriba "[3] Multiplicacion"
+	llamar nueva_linea
+	Escriba "[4] Salir "
+	llamar nueva_linea
+	lea op
+	llamar nueva_linea
+	caso op haga
+		1: c<-sumaArreglo(n,a,b)
+			Escriba "La Suma es: "
+			llamar nueva_linea
+			aux<-escribeArreglo(n,c)
+		2: c<-restaArreglo(n,a,b)
+			Escriba "La Resta es: "
+			llamar nueva_linea
+			aux<-escribeArreglo(n,c)
+		3: c<-multiplicacionArreglo(n,a,b)
+			Escriba "La Multiplicacion es: "
+			llamar nueva_linea
+			aux<-escribeArreglo(n,c)
+		4: Escriba "Saliendo... "
+		sino: Escriba "No ingreso una opcion correcta... "
+	fin caso
+fin

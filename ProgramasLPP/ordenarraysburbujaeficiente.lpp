@@ -1,0 +1,28 @@
+//ordenamiento de burbuja
+
+arreglo[n] de entero num
+entero i, aux, j, n
+
+inicio
+Escriba "Cuantos elementos tendra el arreglo? "
+lea n
+llamar nueva_linea
+aux<-0
+para i <- 1 hasta n haga
+Escriba "Ingrese el numero de la pos, ", I ,":"
+lea num[i]
+fin para
+para j <- 1 hasta n-1 haga
+para i <- 1 hasta n-j haga
+	Si num[i] > num[i+1] entonces
+		aux<-num[i+1]
+		num[i+1]<-num[i]
+		num[i]<-aux
+	fin si
+fin para
+fin para
+para i<-1 hasta n haga
+escriba num[i]
+llamar nueva_linea
+fin para
+fin

@@ -1,0 +1,40 @@
+/*Aguilar Bernal
+matriz diagonal 11111*/
+arreglo[5,5] de entero a
+entero aux, n
+
+funcion llenarArreglo(entero n):arreglo[5,5] de entero
+entero i,j
+inicio
+para i<-1 hasta n haga
+	para j<-1 hasta n haga
+		Si j=i entonces
+		 a[i,j]<-1
+		 sino
+		 a[i,j]<-0
+		fin si
+	fin para
+fin para
+retorne a
+fin
+
+procedimiento escribirArreglo(entero n,arreglo[5,5] de entero a)
+entero i,j
+inicio
+	Escriba "_____________________________"
+	llamar nueva_linea
+	para i<-1 hasta n haga
+		para j<-1 hasta n haga
+		Escriba "| ", a[i,j] , " | "
+	fin para
+	llamar nueva_linea
+	fin para
+	Escriba "_____________________________"
+fin
+
+inicio
+	n<-5
+	a<-llenarArreglo(n)
+	llamar escribirArreglo(n,a)
+fin
+			

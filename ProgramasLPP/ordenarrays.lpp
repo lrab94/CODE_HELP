@@ -1,0 +1,47 @@
+arreglo[1000] de entero num
+entero i, aux, j, n
+
+funcion llenar_array(entero n): arreglo[1000] de entero
+entero i
+inicio
+para i <- 1 hasta n haga
+Escriba "Ingrese el numero de la pos, ", I ,":"
+lea num[i]
+fin para
+retorne num
+fin
+
+funcion acamodo_array(entero aux, entero n):arreglo[1000] de entero
+entero i, j
+inicio
+para j <- 1 hasta n-1 haga
+para i <- 1 hasta n-j haga
+	Si num[i] < num[i+1] entonces
+		aux<-num[i+1]
+		num[i+1]<-num[i]
+		num[i]<-aux
+	fin si
+fin para
+fin para
+retorne num
+fin
+
+funcion escribe_array(entero n):arreglo[1000] de entero
+entero i
+inicio
+para i<-1 hasta n haga
+escriba num[i]
+llamar nueva_linea
+fin para
+retorne num
+fin
+
+inicio
+aux<-0
+escriba "Cuantos elementos comparara? "
+lea n
+llamar nueva_linea
+num<-llenar_array(n)
+num<-acamodo_array(aux, n) 
+num<-escribe_array(n)
+fin

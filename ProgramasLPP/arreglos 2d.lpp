@@ -1,0 +1,95 @@
+/*Aguilar Bernal
+Suma Vectores 2 Dimensiones*/
+arreglo [10,10] de entero a,b,c
+entero n,m,aux
+
+funcion llenarArreglo(entero n, entero m, arreglo[10,10] de entero a):arreglo[10,10] de entero
+entero i,j
+inicio
+para j<-1 hasta n haga
+	para i<-1 hasta n haga
+		Escriba "[",i,",",j,"]="
+		Lea a[i,j]
+		llamar nueva_linea
+	fin para
+fin para
+retorne a
+fin
+
+funcion sumaArreglo(entero n, entero m, arreglo[10,10] de entero a, arreglo[10,10] de entero b)arreglo[10,10] de entero
+entero i,j
+inicio
+para i<-1 hasta n haga
+	para j<-1 hasta n haga
+		c[j,i]<-a[j,i]+b[j,i]
+	fin para
+fin para
+retorne c
+fin
+
+funcion RestaArreglo(entero n, entero m, arreglo[10,10] de entero a, arreglo[10,10] de entero b)arreglo[10,10] de entero
+entero i,j
+inicio
+para i<-1 hasta n haga
+	para j<-1 hasta n haga
+		c[j,i]<-a[j,i]-b[j,i]
+	fin para
+fin para
+retorne c
+fin
+
+
+	//c1,1=a1,1*b1,1+a1,2*b2,1+a1,3*b3,1 C1,2= a1,1 * b1,2 + a1,2 * b2,2 + a1,3 * b3,2 C1,3=a1,1*b1,3+a1,2*b2,3+a1,3*b3,3
+	//c2,1=a2,1*b1,2+a2,2*b2,2+a2,2*b3,1 C2,2= a2,1 * b1,2 + a2,2 * b2,2 + a2,2 * b3,2 C2,3= a2,1 * b1,3 + a2,2 * b2,3 + a2,3 * b3,3
+	//C3,1=a3,1 * b1,1 + a3,2 * b2,1 + a3,3 * b3,1 C3,2=a3,1 * b1,2 + a3,2 * b2,2 + a3,3 * b3,2 C3,3=a3,1 * b1,3 + a3,2 * b2,3 + a3,3 * b3,3
+funcion multiplicarArreglos(entero n,entero m,arreglo[10,10] de entero a, arreglo[10,10] de entero b):arreglo[10,10] de entero
+entero i,j,k
+inicio
+Para i<-1 hasta n haga
+	para j<-1 hasta n haga
+		c[i,j]<-0
+			para k<-1 hasta n haga
+				c[j,i]<-c[j,i]+(a[i,k]*b[k,j])
+			fin para
+	fin para
+fin para
+retorne c
+fin
+
+funcion escribirArreglo(entero n,entero m,arreglo[10,10] de entero a):entero
+entero i,j
+inicio
+para j<-1 hasta n haga
+	para i<-1 hasta n haga
+	escriba "[",i,",",j,"]=",a[i,j]
+	llamar nueva_linea
+	fin para
+fin para
+retorne 0
+fin
+
+inicio
+escriba "n: "
+lea n
+llamar nueva_linea
+Escriba "Ingrese los valores del vector a"
+llamar nueva_linea
+a<-llenarArreglo(n,m,a)
+llamar nueva_linea
+escriba "Ingrese los valores del vector b" 
+llamar nueva_linea
+b<-llenarArreglo(n,m,b)
+c<-multiplicarArreglos(n,m,a,b)
+Escriba "1er Vector: "
+llamar nueva_linea
+aux<-escribirArreglo(n,m,a)
+Escriba "2do Vector: "
+llamar nueva_linea
+aux<-escribirArreglo(n,m,b)
+llamar nueva_linea
+Escriba "Suma de los Vectores: "
+llamar nueva_linea
+aux<-escribirArreglo(n,m,c)
+fin
+
+
